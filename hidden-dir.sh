@@ -22,11 +22,7 @@ WORDLIST="https://raw.githubusercontent.com/danielmiessler/SecLists/master/Disco
 PATTERNS=("/.FUZZ" "/-FUZZ" "/~FUZZ" "/../FUZZ" "/_FUZZ")
 
 # Define Slack webhook URL
-SLACK_WEBHOOK_URL="your_slack_webhook_url"
-
-# Define Telegram bot token and chat ID
-TELEGRAM_BOT_TOKEN="your_telegram_bot_token"
-TELEGRAM_CHAT_ID="your_telegram_chat_id"
+SLACK_WEBHOOK_URL="https://hooks.slack.com/services/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"
 
 # Loop through each URL in the input file
 while IFS= read -r URL; do
@@ -36,18 +32,9 @@ while IFS= read -r URL; do
     for PATTERN in "${PATTERNS[@]}"; do
         echo "Fuzzing pattern: $PATTERN"
         
-        # Run ffuf with the current pattern and save output to a temporary file
+        #Run ffuf with the current pattern and save output to a temporary file
         OUTPUT_FILE=$(mktemp)
         ffuf -u "$URL$PATTERN" -w "$WORDLIST" | tee "$OUTPUT_FILE"
-        
-        # Check if any results are found
-        if [ -s "$OUTPUT_FILE" ]; then
-            echo "Results found for pattern: $PATTERN"
-            
-            # Send notification to Slack
-            curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Results found for pattern: $URL - $URL$PATTERN\"}" "$SLACK_WEBHOOK_URL"
-           
-        fi
         
         # Remove temporary output file
         rm "$OUTPUT_FILE"
