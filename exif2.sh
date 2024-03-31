@@ -4,7 +4,7 @@
 curl -s "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/domains.txt" > domains.txt
 
 # Run gau on the domains to collect urls
-gau -subs -o urls.txt < domains.txt
+cat domains.txt | gau -subs -o urls.txt 
 
 # Define array of file extensions to filter
 file_extensions=("jpeg" "docx" "xlsx" "doc" "ppt" "pptx" "img" "png" "svg" "rtf" "odt" "pdf")
@@ -23,7 +23,7 @@ while IFS= read -r url; do
     exif_output=$(exiftool temp_file)
     
     # Check if exiftool identifies Latitude, Longitude, GPSLocation, or Password
-    if grep -qE "Latitude|Longitude|GPSLocation|comments|passwords|password|URL" <<< "$exif_output"; then
+    if grep -qE "Latitude|Longitude|GPSLocation|comments|gpslocation|passwords|password|URL" <<< "$exif_output"; then
         # Send results to notify
         notify -m "Exiftool identified sensitive data in: $url" -silent -id Confidential-Exif1,Confidential-Exif2
     fi
