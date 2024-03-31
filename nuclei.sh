@@ -34,8 +34,8 @@ while IFS= read -r domain; do
         echo "No WAF detected for $domain"
         
         # Run nuclei on the domain
-        nuclei -u "$domain" -s critical,high,medium,low -rl 3 -c 2 | tee results.txt
-        cat results.txt | notify -silent -id Confidential-Exif1, Confidential-Exif2 
+        nuclei -u "$domain" -s critical,high,medium,low -rl 3 -c 2 | tee $domain.txt
+        cat $domain.txt | notify -silent -id Confidential-Exif1, Confidential-Exif2 
     else
         echo "WAF detected for $domain"
     fi
