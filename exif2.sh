@@ -1,13 +1,19 @@
 #!/bin/bash
 
+echo "Downloading Domains"
+
 # Download the list of urls and save it to domains.txt
 curl -s "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/domains.txt" > domains.txt
+
+echo "\n\nRunning GAU"
 
 # Run gau on the domains to collect urls
 cat domains.txt | gau --subs --o urls.txt 
 
 # Define array of file extensions to filter
 file_extensions=("jpeg" "docx" "xlsx" "doc" "ppt" "pptx" "img" "png" "svg" "rtf" "odt" "pdf")
+
+echo "Filtering URL's"
 
 # Loop through each file extension and filter urls
 for ext in "${file_extensions[@]}"; do
@@ -18,7 +24,9 @@ done
 while IFS= read -r url; do
     # Download the file
     curl -s "$url" -o temp_file
-    
+
+    echo "Running ExifTool on $temp_file"
+
     # Run exiftool
     exif_output=$(exiftool temp_file)
     
