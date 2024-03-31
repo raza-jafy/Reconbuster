@@ -34,7 +34,7 @@ done <<< "$outscope_domains"
 echo "Out-of-scope domains removed from urls.txt."
 
 # Extract domain names from urls.txt
-domains=$(grep -oE '\b(?:https?://)?(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b(?:[-a-zA-Z0-9@:%_\+.~#?&//=]*)?|\*\.[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})?\b' "$urls_file")
+domains=$(grep -oE '^(http|https):\/\/[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$' "$urls_file")
 
 # Loop through each domain in domains
 while IFS= read -r domain; do
