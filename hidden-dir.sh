@@ -17,7 +17,7 @@ fi
 
 # Define the wordlist
 
-WORDLIST="https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/raft-large-directories-lowercase.txt"
+WORDLIST="/root/Desktop/bounty/confidential/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt"
 
 # Define the patterns to fuzz
 PATTERNS=("/.FUZZ" "/-FUZZ" "/~FUZZ" "/../FUZZ" "/_FUZZ")
@@ -32,7 +32,7 @@ while IFS= read -r URL; do
         
         #Run ffuf with the current pattern and save output to a temporary file
         OUTPUT_FILE=$(mktemp)
-        ffuf -u "$URL$PATTERN" -w "$WORDLIST" | tee "$OUTPUT_FILE"
+        ffuf -u "$URL$PATTERN" -w "$WORDLIST" -mc 200,403 | tee "$OUTPUT_FILE"
         
         # Remove temporary output file
         rm "$OUTPUT_FILE"
