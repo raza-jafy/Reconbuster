@@ -5,6 +5,13 @@ if [ "$#" -ne 1 ]; then
     echo "Usage: $0 <input_file>"
     exit 1
 fi
+#!/bin/bash
+
+# Check if the correct number of arguments are provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <input_file>"
+    exit 1
+fi
 
 # Assign input file name to a variable
 input_file="$1"
@@ -27,17 +34,8 @@ while IFS= read -r domain; do
         echo "No WAF detected for $domain"
         
         # Run nuclei on the domain
-        nuclei_output=$(nuclei -u "$domain" -s critical,high,medium,low -rl 3 -c)
-        
-        # Check if nuclei found any vulnerabilities
-        if [[ -n "$nuclei_output" ]]; then
-            echo "Nuclei found vulnerabilities for $domain"
-            
-            # Send the nuclei output to Discord using notify
-            notify -d "Nuclei found vulnerabilities for $domain" -m "$nuclei_output" -t https://discord.com/api/webhooks/1223901339461877812/VdXtTYVcbTSJmfT2_ILMzvQAhndObPGw4xt1rk6FF_tiRIMrAep35aP78JehOjIDzOC5
-        else
-            echo "Nuclei found no vulnerabilities for $domain"
-        fi
+        nuclei -u "$domain" -s critical,high,medium,low -rl 3 -c 2 | tee results.txt
+        cat results.txt | notify -silent -id Confidential-Exif1, Confidential-Exif2 
     else
         echo "WAF detected for $domain"
     fi
