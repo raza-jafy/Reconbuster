@@ -32,7 +32,7 @@ while IFS= read -r URL; do
         
         #Run ffuf with the current pattern and save output to a temporary file
         OUTPUT_FILE=$(mktemp)
-        ffuf -u "$URL$PATTERN" -w "$WORDLIST" -mc 200,403 -ac -t 5| notify -silent -id Confidential-Exif1, Confidential-Exif2 | tee "$OUTPUT_FILE"
+        ffuf -u "$URL$PATTERN" -w "$WORDLIST" -mc 200,403 -ac -maxtime-job 60 -recursion -recursion-depth 2 -t 5| notify -silent -id Confidential-Exif1, Confidential-Exif2 | tee "$OUTPUT_FILE"
         
         # Remove temporary output file
         rm "$OUTPUT_FILE"
