@@ -4,7 +4,7 @@
 curl -s "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/domains.txt" > domains.txt
 
 # Run gau on the domains to collect urls
-cat domains.txt | gau -subs -o urls.txt 
+cat domains.txt | gau --subs --o urls.txt 
 
 # Define array of file extensions to filter
 file_extensions=("jpeg" "docx" "xlsx" "doc" "ppt" "pptx" "img" "png" "svg" "rtf" "odt" "pdf")
