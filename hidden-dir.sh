@@ -16,13 +16,11 @@ if [ ! -f "$INPUT_FILE" ]; then
 fi
 
 # Define the wordlist
+
 WORDLIST="https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/raft-large-directories-lowercase.txt"
 
 # Define the patterns to fuzz
 PATTERNS=("/.FUZZ" "/-FUZZ" "/~FUZZ" "/../FUZZ" "/_FUZZ")
-
-# Define Slack webhook URL
-SLACK_WEBHOOK_URL="https://hooks.slack.com/services/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"
 
 # Loop through each URL in the input file
 while IFS= read -r URL; do
