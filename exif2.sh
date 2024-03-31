@@ -25,7 +25,7 @@ while IFS= read -r url; do
     # Check if exiftool identifies Latitude, Longitude, GPSLocation, or Password
     if grep -qE "Latitude|Longitude|GPSLocation|comments|gpslocation|passwords|password|URL" <<< "$exif_output"; then
         # Send results to notify
-        notify -m "Exiftool identified sensitive data in: $url" -silent -id Confidential-Exif1,Confidential-Exif2
+        notify -mf "Exiftool identified sensitive data in: $url" -silent -id Confidential-Exif1,Confidential-Exif2
     fi
     
     # Clean up temporary file
