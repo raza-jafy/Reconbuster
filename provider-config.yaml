@@ -1,0 +1,13 @@
+slack:
+  - id: "Exiftool"
+    slack_channel: "Exiftool"
+    slack_username: "Exiftool"
+    slack_format: "{{data}}"
+    slack_webhook_url: "https://hooks.slack.com/services/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"
+
+discord:
+  - id: "Exiftool"
+    discord_channel: "Exiftooll"
+    discord_username: "Exiftool"
+    discord_format: "{{data}}"
+    discord_webhook_url: "https://discord.com/api/webhooks/1223901339461877812/VdXtTYVcbTSJmfT2_ILMzvQAhndObPGw4xt1rk6FF_tiRIMrAep35aP78JehOjIDzOC5"
