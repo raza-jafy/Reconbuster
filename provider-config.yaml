@@ -3,7 +3,7 @@ slack:
     slack_channel: "Exiftool"
     slack_username: "Exiftool"
     slack_format: "{{data}}"
-    slack_webhook_url: "https://hooks.slack.com/services/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"
+    slack_webhook_url: ""
 
 discord:
   - id: "Exiftool"
