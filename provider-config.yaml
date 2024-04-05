@@ -1,13 +1,13 @@
 slack:
-  - id: "Exiftool"
-    slack_channel: "Exiftool"
-    slack_username: "Exiftool"
+  - id: "interactsh-colabrator2"
+    slack_channel: "interactsh-colabrator"
+    slack_username: "bounty"
     slack_format: "{{data}}"
     slack_webhook_url: ""
 
 discord:
-  - id: "Exiftool"
-    discord_channel: "Exiftooll"
-    discord_username: "Exiftool"
+  - id: "interactsh-colabrator"
+    discord_channel: "interactsh-colabrator"
+    discord_username: "interactsh-colabrator"
     discord_format: "{{data}}"
-    discord_webhook_url: "https://discord.com/api/webhooks/1223901339461877812/VdXtTYVcbTSJmfT2_ILMzvQAhndObPGw4xt1rk6FF_tiRIMrAep35aP78JehOjIDzOC5"
+    discord_webhook_url: "https://discord.com/api/webhooks/1223632515861057576/h9-aFsbemj2XapmrYrV_HbPJm3NXozYS0ni0Xg57aEhzRYrKwOdrIMFyBAL0dbMoN8Cp"
