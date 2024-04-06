@@ -9,7 +9,8 @@ reset='\033[0m'
 
 # Echo "Running Subfinder" in green
 echo -e "${green}Running Subfinder${reset}"
-subfinder -d $domain -all -silent -o domains.txt
+#subfinder -d $domain -all -silent -o domains.txt
+subfinder -dL domain.txt -all -silent -o domains.txt
 
 # Define input and output files
 input_file="domains.txt"
