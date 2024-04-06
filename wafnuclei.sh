@@ -29,8 +29,8 @@ while IFS= read -r domain; do
 done < "$input_file"
 
 echo -e "${green}Subdomains without WAF protection${reset}"
-cat nowaf.txt
+cat nowaf.txt | notify -bulk -silent -pc provider-config.yaml
 
 echo -e "${green}Running Nuclei${reset}"
 # Run nuclei on domains without WAF
-nuclei -l nowaf.txt -s critical,high,medium,low -fr -iserver uxxbakcpqehrnrfowwuxguhai0imvotcr.oast.fun -o results.txt | notify -silent -pc provider-config.yaml
+nuclei -l nowaf.txt -s critical,high,medium,low -fr -iserver uxxbakcpqehrnrfowwuxguhai0imvotcr.oast.fun -o results.txt | notify -bulk -silent -pc provider-config.yaml
