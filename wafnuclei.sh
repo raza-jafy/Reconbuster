@@ -23,7 +23,7 @@ echo -e "${green}Running WafW00f${reset}"
 # Loop through each domain in the input file
 while IFS= read -r domain; do
     # Run wafw00f on the domain and check if WAF detected
-    if wafw00f "$domain" | grep -qi "No WAF detected by the generic detection"; then
+    if wafw00f -a "$domain" | grep -qi "No WAF detected by the generic detection"; then
         # If no WAF detected, save the domain to the output file
         echo "$domain" >> "$output_file"
     fi
