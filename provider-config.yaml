@@ -1,13 +1,13 @@
 slack:
-  - id: "confidential-exiftool"
-    slack_channel: "confidential-exiftool"
-    slack_username: "confidential-exiftool"
+  - id: "nuclei-fuzz"
+    slack_channel: "nuclei-fuzz"
+    slack_username: "nuclei-fuzz"
     slack_format: "{{data}}"
     slack_webhook_url: ""
 
 discord:
-  - id: "confidential-exif"
-    discord_channel: "confidential-exif"
-    discord_username: "confidential-exif"
+  - id: "nuclei-fuzz1"
+    discord_channel: "nuclei-fuzz"
+    discord_username: "nuclei-fuzz"
     discord_format: "{{data}}"
     discord_webhook_url: "https://discord.com/api/webhooks/1223901339461877812/VdXtTYVcbTSJmfT2_ILMzvQAhndObPGw4xt1rk6FF_tiRIMrAep35aP78JehOjIDzOC5"
