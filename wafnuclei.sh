@@ -1,6 +1,6 @@
 #!/bin/bash
 
-subfinder -dL $domain -all -silent -o domains.txt
+subfinder -d $domain -all -silent -o domains.txt
 
 # Define input and output files
 input_file="domains.txt"
