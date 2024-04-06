@@ -1,13 +1,13 @@
 slack:
-  - id: "interactsh-colabrator2"
-    slack_channel: "interactsh-colabrator"
-    slack_username: "bounty"
+  - id: "confidential-exiftool"
+    slack_channel: "confidential-exiftool"
+    slack_username: "confidential-exiftool"
     slack_format: "{{data}}"
     slack_webhook_url: ""
 
 discord:
-  - id: "interactsh-colabrator"
-    discord_channel: "interactsh-colabrator"
-    discord_username: "interactsh-colabrator"
+  - id: "confidential-exif"
+    discord_channel: "confidential-exif"
+    discord_username: "confidential-exif"
     discord_format: "{{data}}"
-    discord_webhook_url: "https://discord.com/api/webhooks/1223632515861057576/h9-aFsbemj2XapmrYrV_HbPJm3NXozYS0ni0Xg57aEhzRYrKwOdrIMFyBAL0dbMoN8Cp"
+    discord_webhook_url: "https://discord.com/api/webhooks/1223901339461877812/VdXtTYVcbTSJmfT2_ILMzvQAhndObPGw4xt1rk6FF_tiRIMrAep35aP78JehOjIDzOC5"
