@@ -9,10 +9,10 @@ reset='\033[0m'
 
 
 echo -e "${green}Running Paramspider${reset}"
-/root/ParamSpider/paramspider -l nowaf.txt --exclude "$excluded_extentions" --level high --quiet | anew urls.txt
+/root/ParamSpider/paramspider.py -l nowaf.txt -s --exclude "$excluded_extentions" --level high --quiet -o urls.txt
 
 echo -e "${green}Running Httpx${reset}"
 cat urls.txt | httpx -silent -mc 200,301,302 | uro | anew live-urls.txt
 
 echo -e "${green}Running Nuclei${reset}"
-nuclei -l live-urls.txt -t "/root/fuzzing-templates" -fr -iserver uxxbakcpqehrnrfowwuxguhai0imvotcr.oast.fun -fuzz -debug-req -rl 05 | notiffy
+nuclei -l live-urls.txt -t "/root/fuzzing-templates" -iserver uxxbakcpqehrnrfowwuxguhai0imvotcr.oast.fun -fuzz -debug-req -rl 05 -o results.txt | notiffy
