@@ -20,11 +20,17 @@ fi
 # Loop through each domain in domains.txt and run paramspider
 while IFS= read -r domain; do
     echo "Running paramspider on $domain"
-    /root/ParamSpider/paramspider.py -d $domain -s --exclude "$excluded_extentions" --level high --quiet | anew urls.txt
+    /root/ParamSpider/paramspider.py -d $domain -s --exclude "$excluded_extentions" --level high --quiet
 done < "$1"
+
+echo -e "${green}Sorting Text files${reset}"
+find /root/Desktop/bounty/NucleiFuzzer/output -name "*.txt" -exec cat {} + > urls.txt
+mv /root/Desktop/bounty/NucleiFuzzer/output/urls.txt /root/Desktop/bounty/NucleiFuzzer/urls.txt
 
 echo -e "${green}Running Httpx${reset}"
 cat urls.txt | httpx -silent -mc 200,301,302 | uro | anew live-urls.txt
 
 echo -e "${green}Running Nuclei${reset}"
 nuclei -l live-urls.txt -t "/root/fuzzing-templates" -iserver uxxbakcpqehrnrfowwuxguhai0imvotcr.oast.fun -fuzz -debug-req -rl 05 -o results.txt | notiffy
+
+#rm -rf output
