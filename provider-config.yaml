@@ -1,13 +1,13 @@
 slack:
-  - id: "nuclei-fuzz"
-    slack_channel: "nuclei-fuzz"
-    slack_username: "nuclei-fuzz"
+  - id: "knoxss"
+    slack_channel: "knoxss"
+    slack_username: "knoxss"
     slack_format: "{{data}}"
     slack_webhook_url: ""
 
 discord:
-  - id: "nuclei-fuzz1"
-    discord_channel: "nuclei-fuzz"
-    discord_username: "nuclei-fuzz"
+  - id: "knoxss2"
+    discord_channel: "knoxss"
+    discord_username: "knoxss"
     discord_format: "{{data}}"
-    discord_webhook_url: "https://discord.com/api/webhooks/1223901339461877812/VdXtTYVcbTSJmfT2_ILMzvQAhndObPGw4xt1rk6FF_tiRIMrAep35aP78JehOjIDzOC5"
+    discord_webhook_url: "https://discord.com/api/webhooks/1223632416317640734/9IH0pPY1cjxztd8dKo1XU_cnNdWyYL7vD5_rNCQi03P9jXfGDfRtGVH52kqvHkPeTsNy"
