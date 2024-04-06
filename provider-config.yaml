@@ -10,4 +10,4 @@ discord:
     discord_channel: "knoxss"
     discord_username: "knoxss"
     discord_format: "{{data}}"
-    discord_webhook_url: "https://discord.com/api/webhooks/1223632416317640734/9IH0pPY1cjxztd8dKo1XU_cnNdWyYL7vD5_rNCQi03P9jXfGDfRtGVH52kqvHkPeTsNy"
+    discord_webhook_url: "https://discord.com/api/webhooks/1223632416317640734/9IH0pPY1cjxztd8dKo1XU_cnNdWyYL7vD5_rNCQi03P9jXfGDfRtGVH52k"
