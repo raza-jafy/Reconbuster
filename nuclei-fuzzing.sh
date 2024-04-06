@@ -8,8 +8,20 @@ green='\033[0;32m'
 reset='\033[0m'
 
 
+
 echo -e "${green}Running Paramspider${reset}"
-/root/ParamSpider/paramspider.py -l nowaf.txt -s --exclude "$excluded_extentions" --level high --quiet -o urls.txt
+#/root/ParamSpider/paramspider.py -l nowaf.txt -s --exclude "$excluded_extentions" --level high --quiet -o urls.txt
+# Check if domains.txt file is provided as argument
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <domains.txt>"
+    exit 1
+fi
+
+# Loop through each domain in domains.txt and run paramspider
+while IFS= read -r domain; do
+    echo "Running paramspider on $domain"
+    /root/ParamSpider/paramspider.py -d $domain -s --exclude "$excluded_extentions" --level high --quiet | anew urls.txt
+done < "$1"
 
 echo -e "${green}Running Httpx${reset}"
 cat urls.txt | httpx -silent -mc 200,301,302 | uro | anew live-urls.txt
