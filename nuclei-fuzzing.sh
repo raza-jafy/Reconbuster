@@ -10,7 +10,7 @@ reset='\033[0m'
 
 
 echo -e "${green}Running Paramspider${reset}"
-#/root/ParamSpider/paramspider.py -l nowaf.txt -s --exclude "$excluded_extentions" --level high --quiet -o urls.txt
+#/root/ParamSpider/paramspider.py -l nowaf.txt --exclude "$excluded_extentions" --level high --quiet -o urls.txt
 # Check if domains.txt file is provided as argument
 if [ $# -eq 0 ]; then
     echo "Usage: $0 <domains.txt>"
@@ -20,17 +20,17 @@ fi
 # Loop through each domain in domains.txt and run paramspider
 while IFS= read -r domain; do
     echo "Running paramspider on $domain"
-    /root/ParamSpider/paramspider.py -d $domain -s --exclude "$excluded_extentions" --level high --quiet
+    /root/ParamSpider/paramspider.py -d $domain --exclude "$excluded_extentions" --level high --quiet
 done < "$1"
 
 echo -e "${green}Sorting Text files${reset}"
-find /root/Desktop/bounty/NucleiFuzzer/output -name "*.txt" -exec cat {} + > urls.txt
-mv /root/Desktop/bounty/NucleiFuzzer/output/urls.txt /root/Desktop/bounty/NucleiFuzzer/urls.txt
+find /root/Desktop/bounty/NucleiFuzzer/output -name "*.txt" -exec cat {} + > /root/Desktop/bounty/NucleiFuzzer/urls.txt
+#mv /root/Desktop/bounty/NucleiFuzzer/output/urls.txt /root/Desktop/bounty/NucleiFuzzer/urls.txt
 
 echo -e "${green}Running Httpx${reset}"
 cat urls.txt | httpx -silent -mc 200,301,302 | uro | anew live-urls.txt
 
 echo -e "${green}Running Nuclei${reset}"
-nuclei -l live-urls.txt -t "/root/fuzzing-templates" -iserver uxxbakcpqehrnrfowwuxguhai0imvotcr.oast.fun -fuzz -debug-req -rl 05 -o results.txt | notiffy
+nuclei -l live-urls.txt -t "/root/fuzzing-templates" -iserver uxxbakcpqehrnrfowwuxguhai0imvotcr.oast.fun -fuzz -debug-req -rl 05 -o results.txt | notify -silent -pc provider-config.yaml
 
 #rm -rf output
