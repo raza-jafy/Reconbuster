@@ -10,4 +10,4 @@ discord:
     discord_channel: "nuclei-fuzzer"
     discord_username: "nuclei-fuzzer"
     discord_format: "{{data}}"
-    discord_webhook_url: "https://discord.com/api/webhooks/1226211766657089708/L26Q8XVc06zoqybD6v1_6SdyFEGKe2dOPvc96keAzrSnYHTNvgg3hSjQs4nrfjIH3JzO"
+    discord_webhook_url: "https://discord.com/api/webhooks/1226211766657089708/L26Q8XVc06zoqybD6v1_6SdyFEG3JzO"
