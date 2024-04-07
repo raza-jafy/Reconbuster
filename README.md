@@ -1,4 +1,5 @@
 # Reconbuster
 
-bash hidden-dir.sh domains_list.txt &nbsp;
-wafnuclei.sh export domain=example.com &nbsp;
+bash hidden-dir.sh domains_list.txt
+wafnuclei.sh export domain=example.com
+dast.sh (paste the domains.txt in the same directorty)
