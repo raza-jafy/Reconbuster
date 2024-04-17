@@ -1,0 +1,14 @@
+version: 1.4
+
+prefs:
+  runLog:
+    type: file
+    path: /var/log/jobber-runs
+    maxFileLen: 100m
+    maxHistories: 20
+
+jobs:
+  iprotate:
+    cmd: /root/Desktop/bounty/iprotate/iprotate.sh
+    time: '0,30 * * * *'
+    onError: Continue
